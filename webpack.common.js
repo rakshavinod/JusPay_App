@@ -6,8 +6,9 @@ module.exports = {
     app: "./src/index.js",
   },
   output: {
-    // filename: "app.js",
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "build"), // Change from "public" to "build"
+    filename: "bundle.js", // Ensure you have an output filename
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -45,5 +46,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [new MiniCssExtractPlugin({ filename: "[name].css" })],
 };
